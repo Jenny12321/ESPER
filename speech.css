@@ -57,13 +57,17 @@ a{
     text-decoration: none;
 }
 
+#submitBtn{
+    position:relative;
+    margin-top:33%;
+}
+
 #footer{
     color: cadetblue;
     text-align: center;
     clear: both;
     position: relative;
-    z-index: 10;
-    height: 1em;
+    bottom:0;
     padding: 10px;
 }
 
