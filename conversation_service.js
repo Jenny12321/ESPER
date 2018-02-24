@@ -1,5 +1,5 @@
 // Example 4: implements app actions.
-//var prompt = require('prompt-sync')();
+var prompt = require('prompt-sync')();
 var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 
 // Set up Conversation service wrapper.
@@ -41,16 +41,16 @@ function processResponse(err, response) {
     }
   }
     
-function conv(newMessageFromUser) { 
-    alert(response.output);
-      // If we're not done, prompt for the next round of input.
-      if (!endConversation) {
-        conversation.message({
-          workspace_id: workspace_id,
-          input: { text: newMessageFromUser },
-          // Send back the context to maintain state.
-          context : response.context,
-        }, processResponse)
-      }
-    }
+    
+console.log(response.output);
+  // If we're not done, prompt for the next round of input.
+  if (!endConversation) {
+    var newMessageFromUser = prompt('>> ');
+    conversation.message({
+      workspace_id: workspace_id,
+      input: { text: newMessageFromUser },
+      // Send back the context to maintain state.
+      context : response.context,
+    }, processResponse)
+  }
 }
