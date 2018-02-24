@@ -4,6 +4,8 @@
 
 #contents{
     background-color: #f2f2f2;
+    position:relative;
+    bottom:0;
 }
 
 h1{
@@ -14,7 +16,7 @@ h1{
     left: 0;
     margin: 0 0 auto;
     position:absolute;
-    top: 50%;
+    top: 30%;
     width: 100%;
 }
 
@@ -31,6 +33,12 @@ h3{
     color:#8d9e9f;
     font-size: 1.4em;
     text-align: center;
+}
+
+.decor {
+    position:absolute;
+    left:47%;
+    top:7%;
 }
 
 #container{
@@ -81,5 +89,17 @@ a{
     padding: 10px;
 }
 
+.polygon{
+    clip-path: polygon(50% 0%, 65.5% 32.9%, 100% 38.2%, 75% 63.8%, 80.9% 100%, 50% 82.9%, 19.1% 100%, 25% 63.8%, 0% 38.2%, 34.5% 32.9%);
+    background: red;
+    width: 100px;
+    height: 100px;
+    transition: all 2s ease;
+}
+
+.polygon:hover{
+    clip-path: polygon(50% 0%, 80.9% 7.2%, 97.5% 33.7%, 100% 64.6%, 79.4% 88.1%, 50% 100%, 20.6% 88.1%, 0% 64.6%, 2.5% 33.7%, 19.1% 7.2%);
+    background: blue;
+}
 
 
