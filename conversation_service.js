@@ -3,14 +3,14 @@
 var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 
 // Set up Conversation service wrapper.
-var conversation = new ConversationV1({
+ window.conversation = new ConversationV1({
   username: '62c028a8-814f-499f-92b7-cd19884de4ac', // replace with service username
   password: 'aXVgNhLkOPYL', // replace with service password
   version_date: '2017-05-26'
 });
 
 var workspace_id = 'c84df8e6-af10-45b5-9c09-4d5355dd74e7'; // replace with workspace ID
-
+console.log("LOADED-----------")
 // Start conversation with empty message.
 conversation.message({
   workspace_id: workspace_id
@@ -33,24 +33,21 @@ function processResponse(err, response) {
     // User said goodbye, so we're done.
     console.log(response.output.text[0]);
     endConversation = true;
-    console.log("HELOOOOOO");
   } else {
     // Display the output from dialog, if any.
     if (response.output.text.length != 0) {
         console.log(response.output.text[0]);
     }
   }
-    
-function conv(newMessageFromUser) { 
-    alert(response.output);
-      // If we're not done, prompt for the next round of input.
-      if (!endConversation) {
-        conversation.message({
-          workspace_id: workspace_id,
-          input: { text: newMessageFromUser },
-          // Send back the context to maintain state.
-          context : response.context,
-        }, processResponse)
-      }
-    }
+
+alert(response.output);
+  // If we're not done, prompt for the next round of input.
+  if (!endConversation) {
+    conversation.message({
+      workspace_id: workspace_id,
+      input: { text: newMessageFromUser },
+      // Send back the context to maintain state.
+      context : response.context,
+    }, processResponse)
+  }
 }
