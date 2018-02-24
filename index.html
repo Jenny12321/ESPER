@@ -89,8 +89,13 @@
     <!-- SDK REFERENCE -->
     <script src="../../distrib/speech.sdk.bundle.js"></script>
 
+    
+    
+    <script src = "conversation_service.js"></script>
+    
     <!-- SDK USAGE -->
     <script>
+     //   var newMessageFromUser;
         // On document load resolve the SDK dependency
         function Initialize(onComplete) {
             if (!!window.SDK) {
@@ -181,15 +186,12 @@
                         UpdateRecognizedHypothesis(event.Result.Text, true);
                         console.log(JSON.stringify(event.Result)); // check console for other information in result
                         break;
-                    case "SpeechEndDetectedEvent" :
-                        OnSpeechEndDetected();
-                        UpdateStatus("Processing_Adding_Final_Touches");
-                        console.log(JSON.stringify(event.Result)); // check console for other information in result
-                        break;
+//                    case "SpeechEndDetectedEvent" :
+//                        OnSpeechEndDetected();
+//                        UpdateStatus("Processing_Adding_Final_Touches");
+//                        console.log(JSON.stringify(event.Result)); // check console for other information in result
+//                        break;
                     case "SpeechSimplePhraseEvent" :
-                        UpdateRecognizedPhrase(JSON.stringify(event.Result, null, 3));
-                        break;
-                    case "SpeechDetailedPhraseEvent" :
                         UpdateRecognizedPhrase(JSON.stringify(event.Result, null, 3));
                         break;
                     case "RecognitionEndedEvent" :
@@ -214,6 +216,12 @@
             // recognizer.AudioSource.Detach(audioNodeId) can be also used here. (audioNodeId is part of ListeningStartedEvent)
             recognizer.AudioSource.TurnOff();
             
+            window.alert(phraseDiv.innerHTML);
+            
+          //  var newMessageFromUser = phraseDiv.innerHTML;
+            $.getScript("conversation_service.js", function(){
+                    conv(phraseDiv.innerHTML);
+                                                     });
         }
     </script>
 
@@ -264,16 +272,6 @@
                }
             });
 
-            filePicker.addEventListener("change", function () {
-                Setup();
-                hypothesisDiv.innerHTML = "";
-                phraseDiv.innerHTML = "";
-                RecognizerStart(SDK, recognizer);
-                startBtn.disabled = true;
-                stopBtn.disabled = false;
-                filePicker.value = "";
-            });
-
             stopBtn.addEventListener("click", function () {
                 RecognizerStop(SDK, recognizer);
                 startBtn.disabled = false;
@@ -290,7 +288,7 @@
             if (recognizer != null) {
                 RecognizerStop(SDK, recognizer);
             }
-            recognizer = RecognizerSetup(SDK, "Dictation", "en-US", SDK.SpeechResultFormat["Detailed"], key.value);
+            recognizer = RecognizerSetup(SDK, "Dictation", "en-US", SDK.SpeechResultFormat["Simple"], key.value);
         }
 
         function UpdateStatus(status) {
@@ -315,7 +313,9 @@
 
         function UpdateRecognizedPhrase(json) {
             hypothesisDiv.innerHTML = "";
-            phraseDiv.innerHTML += json + "\n";
+            if (!(JSON.parse(json).DisplayText=== "undefined")) {
+                phraseDiv.innerHTML += JSON.parse(json).DisplayText + "\n";
+            }
         }
 
         function OnComplete() {
