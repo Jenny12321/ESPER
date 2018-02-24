@@ -1,2 +1,518 @@
-{"name":"Friend","intents":[{"intent":"Okay","examples":[{"text":"Okay"},{"text":"Yeah"},{"text":"Ya"},{"text":"yes"},{"text":"yah"}],"description":"short response"},{"intent":"farewell","examples":[{"text":"goodbye"},{"text":"see you later"},{"text":"i'll be going now"},{"text":"bye"},{"text":"talk to you later"}],"description":"leaving the conversation"},{"intent":"Thanks","examples":[{"text":"thanks"},{"text":"thank you"},{"text":"I appreciate that"}],"description":"thanks"},{"intent":"end_converstation","examples":[{"text":"stop talking to me"}],"description":"Ending the conversation"},{"intent":"suicide","examples":[{"text":"kill myself"},{"text":"suicide"},{"text":"die"},{"text":"death"},{"text":"end my life"},{"text":"don't want to live"}],"description":"suicidal thoughts"},{"intent":"crisis","examples":[{"text":"I can't do this anymore"},{"text":"I'm done."},{"text":"I hate my life"},{"text":"I don't know what to do anymore"},{"text":"rock bottom"}],"description":"extreme emotional state"},{"intent":"sad","examples":[{"text":"sad"},{"text":"down"},{"text":"gloomy"},{"text":"upset"},{"text":"I'm so tired and sad"}],"description":"sad"},{"intent":"bad_day","examples":[{"text":"had a bad day"},{"text":"terrible day"},{"text":"horrible day"},{"text":"was not a good day"},{"text":"terrible happened"},{"text":"Today i got no sleep"}],"description":"just a bad day"},{"intent":"depressed","examples":[{"text":"depressed"},{"text":"sick of feeling this way"},{"text":"I want to feel better"},{"text":"hate everything"},{"text":"I don’t feel like I deserve to feel happy"},{"text":"burden"},{"text":"nobody cares about me"}],"description":"depression"},{"intent":"lonely","examples":[{"text":"feeling lonely"},{"text":"I miss my"},{"text":"No one"},{"text":"alone"},{"text":"by myself"},{"text":"watching other"}],"description":"Want to talk"}],"entities":[{"entity":"nosleep","values":[{"type":"synonyms","value":"no sleep","metadata":null,"synonyms":["sleeplessness","tired","didn't get sleep"]}],"metadata":null,"description":null}],"language":"en","metadata":{"api_version":{"major_version":"v1","minor_version":"2017-05-26"}},"description":"","dialog_nodes":[{"type":"standard","title":"Sleeplessness","output":{"text":{"values":["Sorry to hear about that. I hope you get some well-deserved rest tonight","It looks like you're feeling tired. Try to go to bed early today, it will help you feel better tomorrow morning"],"selection_policy":"sequential"}},"parent":"node_5_1519477068740","context":null,"metadata":{},"next_step":null,"conditions":"@nosleep","description":null,"dialog_node":"node_6_1519477202853","previous_sibling":null},{"type":"standard","title":"Leave conversation","output":{},"parent":"node_9_1519479278126","context":null,"metadata":{},"next_step":null,"conditions":"#end_converstation","description":null,"dialog_node":"node_11_1519479579424","previous_sibling":null},{"type":"standard","title":"bad day","output":{"text":{"values":["Tell me about what happened today"],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#bad_day","description":null,"dialog_node":"node_5_1519477068740","previous_sibling":"node_4_1519476634071"},{"type":"standard","title":"Farewell","output":{"text":{"values":["Goodbye!","Glad we could talk. Goodbye.","Goodbye, all the best."],"selection_policy":"random"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#farewell","digress_in":"does_not_return","description":null,"dialog_node":"node_9_1519479278126","previous_sibling":"node_8_1519477685991"},{"type":"standard","title":"depressed","output":{"text":{"values":["I know it's hard now, but it will get better. Keep your head up, it will be worth it"],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#depressed","description":null,"dialog_node":"node_3_1519476552188","previous_sibling":"node_2_1519476395328"},{"type":"standard","title":"Thanks","output":{"text":{"values":["It's no problem","I'm happy to help"],"selection_policy":"random"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#Thanks","description":null,"dialog_node":"node_8_1519477685991","previous_sibling":"node_7_1519477383116"},{"type":"standard","title":"sad","output":{"text":{"values":["It will get better. Listen to some music for the time being!","Is it nice outside? Go for a walk to clear your mind."],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#sad","description":null,"dialog_node":"node_4_1519476634071","previous_sibling":"node_3_1519476552188"},{"type":"standard","title":"crisis","output":{"text":{"values":["I'm sorry to hear that. If you need to speak to someone, please find a trusted friend or family. Or if you can't find any of those right now, that's okay. You can talk to me some more, or try these helplines."],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#crisis","description":null,"dialog_node":"node_7_1519477383116","previous_sibling":"node_5_1519477068740"},{"type":"standard","title":"Okay","output":{"text":{"values":["What's on your mind?","How can I help you?"],"selection_policy":"random"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#Okay","description":null,"dialog_node":"node_2_1519476395328","previous_sibling":"node_1_1519475950524"},{"type":"standard","title":"Anything else","output":{"text":{"values":["I didn't understand. You can try rephrasing.","Can you reword your statement? I'm not understanding.","I didn't get your meaning."],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"anything_else","description":null,"dialog_node":"Anything else","previous_sibling":"node_9_1519479278126"},{"type":"standard","title":"Lonely","output":{"text":{"values":["I'm here for you. Let's talk about it","If you're feeling lonely, let's take your mind off of it"],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"#lonely","description":null,"dialog_node":"node_1_1519475950524","previous_sibling":"Welcome"},{"type":"standard","title":"Welcome","output":{"text":{"values":["Hello, would you like to talk?","Hi, how are you feeling?","Hey, how are you today?"],"selection_policy":"sequential"}},"parent":null,"context":null,"metadata":{},"next_step":null,"conditions":"welcome","description":null,"dialog_node":"Welcome","previous_sibling":null}],"workspace_id":"c84df8e6-af10-45b5-9c09-4d5355dd74e7","counterexamples":[],"learning_opt_out":false}
+{  
+   "name":"Friend",
+   "intents":[  
+      {  
+         "intent":"Okay",
+         "examples":[  
+            {  
+               "text":"Okay"
+            },
+            {  
+               "text":"Yeah"
+            },
+            {  
+               "text":"Ya"
+            },
+            {  
+               "text":"yes"
+            },
+            {  
+               "text":"yah"
+            }
+         ],
+         "description":"short response"
+      },
+      {  
+         "intent":"farewell",
+         "examples":[  
+            {  
+               "text":"goodbye"
+            },
+            {  
+               "text":"see you later"
+            },
+            {  
+               "text":"i'll be going now"
+            },
+            {  
+               "text":"bye"
+            },
+            {  
+               "text":"talk to you later"
+            }
+         ],
+         "description":"leaving the conversation"
+      },
+      {  
+         "intent":"Thanks",
+         "examples":[  
+            {  
+               "text":"thanks"
+            },
+            {  
+               "text":"thank you"
+            },
+            {  
+               "text":"I appreciate that"
+            }
+         ],
+         "description":"thanks"
+      },
+      {  
+         "intent":"end_converstation",
+         "examples":[  
+            {  
+               "text":"stop talking to me"
+            }
+         ],
+         "description":"Ending the conversation"
+      },
+      {  
+         "intent":"suicide",
+         "examples":[  
+            {  
+               "text":"kill myself"
+            },
+            {  
+               "text":"suicide"
+            },
+            {  
+               "text":"die"
+            },
+            {  
+               "text":"death"
+            },
+            {  
+               "text":"end my life"
+            },
+            {  
+               "text":"don't want to live"
+            }
+         ],
+         "description":"suicidal thoughts"
+      },
+      {  
+         "intent":"crisis",
+         "examples":[  
+            {  
+               "text":"I can't do this anymore"
+            },
+            {  
+               "text":"I'm done."
+            },
+            {  
+               "text":"I hate my life"
+            },
+            {  
+               "text":"I don't know what to do anymore"
+            },
+            {  
+               "text":"rock bottom"
+            }
+         ],
+         "description":"extreme emotional state"
+      },
+      {  
+         "intent":"sad",
+         "examples":[  
+            {  
+               "text":"sad"
+            },
+            {  
+               "text":"down"
+            },
+            {  
+               "text":"gloomy"
+            },
+            {  
+               "text":"upset"
+            },
+            {  
+               "text":"I'm so tired and sad"
+            }
+         ],
+         "description":"sad"
+      },
+      {  
+         "intent":"bad_day",
+         "examples":[  
+            {  
+               "text":"had a bad day"
+            },
+            {  
+               "text":"terrible day"
+            },
+            {  
+               "text":"horrible day"
+            },
+            {  
+               "text":"was not a good day"
+            },
+            {  
+               "text":"terrible happened"
+            },
+            {  
+               "text":"Today i got no sleep"
+            }
+         ],
+         "description":"just a bad day"
+      },
+      {  
+         "intent":"depressed",
+         "examples":[  
+            {  
+               "text":"depressed"
+            },
+            {  
+               "text":"sick of feeling this way"
+            },
+            {  
+               "text":"I want to feel better"
+            },
+            {  
+               "text":"hate everything"
+            },
+            {  
+               "text":"I don’t feel like I deserve to feel happy"
+            },
+            {  
+               "text":"burden"
+            },
+            {  
+               "text":"nobody cares about me"
+            }
+         ],
+         "description":"depression"
+      },
+      {  
+         "intent":"lonely",
+         "examples":[  
+            {  
+               "text":"feeling lonely"
+            },
+            {  
+               "text":"I miss my"
+            },
+            {  
+               "text":"No one"
+            },
+            {  
+               "text":"alone"
+            },
+            {  
+               "text":"by myself"
+            },
+            {  
+               "text":"watching other"
+            }
+         ],
+         "description":"Want to talk"
+      }
+   ],
+   "entities":[  
+      {  
+         "entity":"nosleep",
+         "values":[  
+            {  
+               "type":"synonyms",
+               "value":"no sleep",
+               "metadata":null,
+               "synonyms":[  
+                  "sleeplessness",
+                  "tired",
+                  "didn't get sleep"
+               ]
+            }
+         ],
+         "metadata":null,
+         "description":null
+      }
+   ],
+   "language":"en",
+   "metadata":{  
+      "api_version":{  
+         "major_version":"v1",
+         "minor_version":"2017-05-26"
+      }
+   },
+   "description":"",
+   "dialog_nodes":[  
+      {  
+         "type":"standard",
+         "title":"Sleeplessness",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "Sorry to hear about that. I hope you get some well-deserved rest tonight",
+                  "It looks like you're feeling tired. Try to go to bed early today, it will help you feel better tomorrow morning"
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":"node_5_1519477068740",
+         "context":null,
+         "metadata":{  
 
+         },
+         "next_step":null,
+         "conditions":"@nosleep",
+         "description":null,
+         "dialog_node":"node_6_1519477202853",
+         "previous_sibling":null
+      },
+      {  
+         "type":"standard",
+         "title":"Leave conversation",
+         "output":{  
+
+         },
+         "parent":"node_9_1519479278126",
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#end_converstation",
+         "description":null,
+         "dialog_node":"node_11_1519479579424",
+         "previous_sibling":null
+      },
+      {  
+         "type":"standard",
+         "title":"bad day",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "Tell me about what happened today"
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#bad_day",
+         "description":null,
+         "dialog_node":"node_5_1519477068740",
+         "previous_sibling":"node_4_1519476634071"
+      },
+      {  
+         "type":"standard",
+         "title":"Farewell",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "Goodbye!",
+                  "Glad we could talk. Goodbye.",
+                  "Goodbye, all the best."
+               ],
+               "selection_policy":"random"
+            },
+             "action":"close"
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#farewell",
+         "digress_in":"does_not_return",
+         "description":null,
+         "dialog_node":"node_9_1519479278126",
+         "previous_sibling":"node_8_1519477685991"
+      },
+      {  
+         "type":"standard",
+         "title":"depressed",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "I know it's hard now, but it will get better. Keep your head up, it will be worth it"
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#depressed",
+         "description":null,
+         "dialog_node":"node_3_1519476552188",
+         "previous_sibling":"node_2_1519476395328"
+      },
+      {  
+         "type":"standard",
+         "title":"Thanks",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "It's no problem",
+                  "I'm happy to help"
+               ],
+               "selection_policy":"random"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#Thanks",
+         "description":null,
+         "dialog_node":"node_8_1519477685991",
+         "previous_sibling":"node_7_1519477383116"
+      },
+      {  
+         "type":"standard",
+         "title":"sad",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "It will get better. Listen to some music for the time being!",
+                  "Is it nice outside? Go for a walk to clear your mind."
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#sad",
+         "description":null,
+         "dialog_node":"node_4_1519476634071",
+         "previous_sibling":"node_3_1519476552188"
+      },
+      {  
+         "type":"standard",
+         "title":"crisis",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "I'm sorry to hear that. If you need to speak to someone, please find a trusted friend or family. Or if you can't find any of those right now, that's okay. You can talk to me some more, or try these helplines."
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#crisis",
+         "description":null,
+         "dialog_node":"node_7_1519477383116",
+         "previous_sibling":"node_5_1519477068740"
+      },
+      {  
+         "type":"standard",
+         "title":"Okay",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "What's on your mind?",
+                  "How can I help you?"
+               ],
+               "selection_policy":"random"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#Okay",
+         "description":null,
+         "dialog_node":"node_2_1519476395328",
+         "previous_sibling":"node_1_1519475950524"
+      },
+      {  
+         "type":"standard",
+         "title":"Anything else",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "I didn't understand. You can try rephrasing.",
+                  "Can you reword your statement? I'm not understanding.",
+                  "I didn't get your meaning."
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"anything_else",
+         "description":null,
+         "dialog_node":"Anything else",
+         "previous_sibling":"node_9_1519479278126"
+      },
+      {  
+         "type":"standard",
+         "title":"Lonely",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "I'm here for you. Let's talk about it",
+                  "If you're feeling lonely, let's take your mind off of it"
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"#lonely",
+         "description":null,
+         "dialog_node":"node_1_1519475950524",
+         "previous_sibling":"Welcome"
+      },
+      {  
+         "type":"standard",
+         "title":"Welcome",
+         "output":{  
+            "text":{  
+               "values":[  
+                  "Hello, would you like to talk?",
+                  "Hi, how are you feeling?",
+                  "Hey, how are you today?"
+               ],
+               "selection_policy":"sequential"
+            }
+         },
+         "parent":null,
+         "context":null,
+         "metadata":{  
+
+         },
+         "next_step":null,
+         "conditions":"welcome",
+         "description":null,
+         "dialog_node":"Welcome",
+         "previous_sibling":null
+      }
+   ],
+   "workspace_id":"c84df8e6-af10-45b5-9c09-4d5355dd74e7",
+   "counterexamples":[  
+
+   ],
+   "learning_opt_out":false
+}
