@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 #contents{
     background-color: #f2f2f2;
 }
@@ -29,13 +33,13 @@ h3{
     text-align: center;
 }
 
-#header{
+#container{
     color: #F75959;
     background-color:#e9e3d5;
     background-size: cover;
     position:relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     left:0;
     top:0;
     text-align: center;
@@ -53,6 +57,10 @@ p{
     text-decoration: none;
 }
 
+.row{
+    margin-top:2%;
+}
+
 a{
     text-decoration: none;
 }
@@ -64,9 +72,11 @@ a{
 
 #footer{
     color: cadetblue;
+    background-color: #f2f2f2;
     text-align: center;
     clear: both;
-    position: relative;
+    position: absolute;
+    width:100%;
     bottom:0;
     padding: 10px;
 }
