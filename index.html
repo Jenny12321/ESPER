@@ -83,7 +83,8 @@
                   <img src="img/project_name.gif">
               </div>
               <a class="text-faded nav-link" id="link_sink" style="font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;font-weight: 700;font-size: large;"></a>
-            <hr>
+            <!--<hr>-->
+            <img id="pink_line" src="img/pink_line.gif" style="max-width: 12%;">
           </div>
           <div class="col-lg-8 mx-auto">
             <div class="hidden">
@@ -388,6 +389,7 @@
                 }
 
                 if(startBtn.disabled != true){
+                    document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");
                     hypothesisDiv.innerHTML = "";
                     phraseDiv.innerHTML = "";
                     RecognizerStart(SDK, recognizer);
@@ -410,6 +412,7 @@
 
             stopBtn.addEventListener("click", function () {
                 if(stopBtn.disabled != true){
+                    document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");              
                     RecognizerStop(SDK, recognizer);
                     startBtn.disabled = false;
                     stopBtn.disabled = true;   
@@ -459,6 +462,7 @@
 
         function OnComplete() {
             document.title = "Esper    ";
+            document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");
             startBtn.disabled = false;
             stopBtn.disabled = true;
         }
