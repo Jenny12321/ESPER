@@ -91,7 +91,7 @@
     <script src="../../distrib/speech.sdk.bundle.js"></script>
 
     
-    
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     
     <script>
         // Example 4: implements app actions.
@@ -131,12 +131,12 @@
             console.log('The current time is ' + new Date().toLocaleTimeString());
           } else if (response.output.action === 'close') {
             // User said goodbye, so we're done.
-            console.log(response.output.text[0]);
+            responsiveVoice.speak(response.output.text[0], "UK English Female", {rate: 0.85});
             endConversation = true;
           } else {
             // Display the output from dialog, if any.
             if (response.output.text.length != 0) {
-                console.log(response.output.text[0]);
+                responsiveVoice.speak(response.output.text[0], "UK English Female", {rate: 0.85});
             }
           }
         }
