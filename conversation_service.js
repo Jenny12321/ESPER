@@ -29,18 +29,20 @@ function processResponse(err, response) {
   if (response.output.action === 'display_time') {
     // User asked what time it is, so we output the local system time.
     console.log('The current time is ' + new Date().toLocaleTimeString());
-  } else if (response.output.action === 'close') {
-    // User said goodbye, so we're done.
-    console.log(response.output.text[0]);
-    endConversation = true;
-  } else {
+  } 
+//    else if (response.output.action === 'close') {
+//    // User said goodbye, so we're done.
+//    console.log(response.output.text[0]);
+//    endConversation = true;
+//  } 
+    else {
     // Display the output from dialog, if any.
     if (response.output.text.length != 0) {
         console.log(response.output.text[0]);
     }
   }
 
-alert(response.output);
+//alert(response.output);
   // If we're not done, prompt for the next round of input.
   if (!endConversation) {
     conversation.message({

@@ -89,10 +89,11 @@
 
     <!-- SDK REFERENCE -->
     <script src="../../speech/distrib/speech.sdk.bundle.js"></script>
-
+    
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    
     <script>
         // Example 4: implements app actions.
-        //var prompt = require('prompt-sync')();
         var ConversationV1 = require('watson-developer-cloud/conversation/v1');
         var endConversation = false;
     
@@ -126,21 +127,14 @@
           if (response.output.action === 'display_time') {
             // User asked what time it is, so we output the local system time.
             console.log('The current time is ' + new Date().toLocaleTimeString());
-          } else if (response.output.action === 'close') {
-            // User said goodbye, so we're done.
-            console.log(response.output.text[0]);
-            endConversation = true;
           } else {
             // Display the output from dialog, if any.
             if (response.output.text.length != 0) {
-                console.log(response.output.text[0]);
+                responsiveVoice.speak(response.output.text[0], "UK English Female", {rate: 0.85});
             }
           }
         }
     </script>
-    
-    
-    
     
     <!-- SDK USAGE -->
     <script>
@@ -265,7 +259,7 @@
             // recognizer.AudioSource.Detach(audioNodeId) can be also used here. (audioNodeId is part of ListeningStartedEvent)
             recognizer.AudioSource.TurnOff();
             
-            window.alert(phraseDiv.innerHTML);
+            //window.alert(phraseDiv.innerHTML);
             var conversation = window.conversation
             
             var newMessageFromUser=phraseDiv.innerHTML;
