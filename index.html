@@ -319,6 +319,7 @@
 //                        console.log(JSON.stringify(event.Result)); // check console for other information in result
 //                        break;
                     case "SpeechSimplePhraseEvent" :
+                        //document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");
                         UpdateRecognizedPhrase(JSON.stringify(event.Result, null, 3));
                         break;
                     case "RecognitionEndedEvent" :
@@ -462,7 +463,7 @@
 
         function OnComplete() {
             document.title = "Esper    ";
-            document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");
+            //document.getElementById("pink_line").setAttribute("src", "img/pink_line.gif");
             startBtn.disabled = false;
             stopBtn.disabled = true;
         }
