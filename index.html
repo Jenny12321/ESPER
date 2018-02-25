@@ -210,6 +210,7 @@
                     var linkSink = document.getElementById("link_sink")
                     linkSink.innerHTML = "GO";
                     linkSink.setAttribute("href", window.link);
+                    linkSink.setAttribute("target", "_blank");
                     linkSink.classList.add("hidden");
                     $('a.hidden').fadeIn(4000).removeClass('hidden');
                 }
