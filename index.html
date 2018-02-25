@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shift</title>
+    <title>Esper    </title>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="speech.css" rel="stylesheet" type="text/css"/>
@@ -289,6 +289,7 @@
                  Alternative syntax for typescript devs.
                  if (event instanceof SDK.RecognitionTriggeredEvent)
                 */
+                document.title = "Esper     ";
                 switch (event.Name) {
                     case "RecognitionTriggeredEvent" :
                         UpdateStatus("Initializing");
@@ -340,7 +341,7 @@
         function RecognizerStop(SDK, recognizer) {
             // recognizer.AudioSource.Detach(audioNodeId) can be also used here. (audioNodeId is part of ListeningStartedEvent)
             recognizer.AudioSource.TurnOff();
-            
+            document.title = "Esper    ";
             //window.alert(phraseDiv.innerHTML);
             var conversation = window.conversation
             
@@ -453,9 +454,11 @@
             if (!(JSON.parse(json).DisplayText=== "undefined")) {
                 phraseDiv.innerHTML += JSON.parse(json).DisplayText + "\n";
             }
+            document.title = "Esper ... ";
         }
 
         function OnComplete() {
+            document.title = "Esper    ";
             startBtn.disabled = false;
             stopBtn.disabled = true;
         }
