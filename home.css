@@ -1,0 +1,43 @@
+body {
+    background-color: #343434;
+    text-align: center;
+    position: relative;
+}
+
+.decor {
+    position:absolute;
+    left:47%;
+    top:7%;
+}
+.polygon{
+    clip-path: polygon(50% 0%, 65.5% 32.9%, 100% 38.2%, 75% 63.8%, 80.9% 100%, 50% 82.9%, 19.1% 100%, 25% 63.8%, 0% 38.2%, 34.5% 32.9%);
+    background: red;
+    width: 100px;
+    height: 100px;
+    position:absolute;
+    transition: all 2s ease;
+}
+
+.polygon:hover{
+    clip-path: polygon(50% 0%, 80.9% 7.2%, 97.5% 33.7%, 100% 64.6%, 79.4% 88.1%, 50% 100%, 20.6% 88.1%, 0% 64.6%, 2.5% 33.7%, 19.1% 7.2%);
+    background: blue;
+}
+
+h1 {
+    color:white;
+}
+
+.pushDown {
+    margin-top:30%;
+}
+
+#container{
+    color: #F75959;
+    background-size: cover;
+    position:relative;
+    width: 100%;
+    height: 100vh;
+    left:0;
+    top:0;
+    text-align: center;
+}
