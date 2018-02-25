@@ -40,7 +40,7 @@ function processResponse(err, response) {
     }
   }
 
-alert(response.output);
+//alert(response.output);
   // If we're not done, prompt for the next round of input.
   if (!endConversation) {
     conversation.message({
