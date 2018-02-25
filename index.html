@@ -80,6 +80,7 @@
               <div class="project_name hidden">
                   <img src="img/project_name.gif">
               </div>
+              <a class="text-faded nav-link" id="link_sink" style="font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;font-weight: 700;font-size: large;"></a>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
@@ -150,7 +151,7 @@
     </div>
 
     <!-- SDK REFERENCE -->
-    <script src="../../distrib/speech.sdk.bundle.js"></script>
+    <script src="../../speech/distrib/speech.sdk.bundle.js"></script>
     
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     
@@ -202,6 +203,13 @@
             // Display the output from dialog, if any.
             if (response.output.text.length != 0) {
                 document.getElementById("output_text").innerHTML = response.output.text[0];
+                if(window.link != ""){
+                    var linkSink = document.getElementById("link_sink")
+                    linkSink.innerHTML = "GO";
+                    linkSink.setAttribute("href", window.link);
+                    linkSink.classList.add("hidden");
+                    $('a.hidden').fadeIn(4000).removeClass('hidden');
+                }
                 responsiveVoice.speak(response.output.text[0], "UK English Female", {rate: 0.85});
             }
           }
